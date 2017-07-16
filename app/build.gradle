@@ -17,7 +17,7 @@ android {
     compileSdkVersion 26
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.linroid.startup"
+        applicationId "com.linroid.gassist"
         minSdkVersion 21
         targetSdkVersion 26
         versionCode 1

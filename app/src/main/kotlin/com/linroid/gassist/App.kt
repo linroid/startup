@@ -1,4 +1,4 @@
-package com.linroid.startup
+package com.linroid.gassist
 
 import android.app.Application
 

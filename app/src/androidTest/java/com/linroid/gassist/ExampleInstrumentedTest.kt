@@ -1,4 +1,4 @@
-package com.linroid.startup
+package com.linroid.gassist
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4
