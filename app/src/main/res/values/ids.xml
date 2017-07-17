@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="plugin_keyboard" type="id"/>
+    <item name="plugin_notification" type="id"/>
+    <item name="plugin_call" type="id"/>
+</resources>
