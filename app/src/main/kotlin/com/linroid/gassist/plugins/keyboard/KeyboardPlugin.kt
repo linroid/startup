@@ -11,9 +11,12 @@ import com.linroid.gassist.plugins.Plugin
  * @since 17/07/2017
  */
 class KeyboardPlugin(context: Context) : Plugin<KeyboardConfig>(context, R.id.plugin_keyboard) {
+    override fun description(): String {
+        return context.resources.getString(R.string.plugin_des_keyboard)
+    }
 
     override fun name(): String {
-        return context.resources.getString(R.string.plugin_keyboard)
+        return context.resources.getString(R.string.plugin_name_keyboard)
     }
 
     override fun change(config: KeyboardConfig) {

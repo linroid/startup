@@ -10,9 +10,12 @@ import com.linroid.gassist.plugins.Plugin
  * @since 17/07/2017
  */
 class CallPlugin(context: Context) : Plugin<CallConfig>(context, R.id.plugin_call) {
+    override fun description(): String {
+        return context.resources.getString(R.string.plugin_des_call)
+    }
 
     override fun name(): String {
-        return context.resources.getString(R.string.plugin_call)
+        return context.resources.getString(R.string.plugin_name_call)
     }
 
     override fun change(config: CallConfig) {

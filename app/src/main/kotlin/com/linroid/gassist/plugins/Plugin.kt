@@ -14,6 +14,11 @@ abstract class Plugin<in T : PluginConfig>(val context: Context, val id: Int) {
     abstract fun name(): String
 
     /**
+     * 描述
+     */
+    abstract fun description(): String
+
+    /**
      * 配置改变
      */
     abstract fun change(config: T)

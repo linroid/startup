@@ -4,13 +4,15 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.text.TextUtils
 import com.linroid.gassist.App
-import timber.log.Timber
+import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.debug
+import org.jetbrains.anko.warn
 
 /**
  * @author linroid <linroid@gmail.com>
  * @since 17/07/2017
  */
-class GameMonitor() {
+class GameMonitor : AnkoLogger {
     val context: Context = App.get()
     var listener: MonitorListener? = null
     var prevPkgName: String? = null
@@ -18,10 +20,10 @@ class GameMonitor() {
 
     fun onAppLaunched(pkgName: String) {
         if (TextUtils.equals(pkgName, prevPkgName)) {
-            Timber.w("%s is current now, ignore it", pkgName)
+            warn("$pkgName is current now, ignore it")
             return
         }
-        Timber.d("onAppLaunched: prev=%s, cur=%s", prevPkgName, pkgName)
+        debug("onAppLaunched: prev=$prevPkgName, cur=$pkgName")
         val prevIsGame = games.contains(prevPkgName)
         val curIsGame = games.contains(pkgName)
         if (curIsGame) {

@@ -1,5 +1,18 @@
 <resources>
-    <string name="app_name">游戏模式</string>
-    <string name="plugin_keyboard">按键屏蔽</string>
-    <string name="plugin_call">阻止来电</string>
+    <string name="app_name">手游助手</string>
+
+    <string name="plugin_name_keyboard">屏蔽按键</string>
+    <string name="plugin_name_call">阻止来电</string>
+    <string name="plugin_name_notification">屏蔽通知</string>
+
+    <string name="plugin_des_keyboard">屏蔽按键</string>
+    <string name="plugin_des_call">阻止来电</string>
+    <string name="plugin_des_notification">屏蔽通知</string>
+
+    <string name="label_turn_on_plugin">开启</string>
+
+    <string name="accessibility_service_description">打开辅助功能是使用「手游助手」完整功能所需，会帮助您在玩游戏时屏蔽其他干扰，助你拿五杀！\n\n提示：打开辅助服务时会受到系统例行的警告提示，「手游助手」不会进行侵害用户利益的行为，请您放心进行开启:)</string>
+    <string name="action_about">关于</string>
+    <string name="action_settings">设置</string>
+
 </resources>
