@@ -14,10 +14,10 @@ import org.jetbrains.anko.setContentView
  * @since 17/07/2017
  */
 @SuppressLint("Registered")
-abstract class BaseActivity<out T : AnkoComponent<Activity>>(val component: T) : RxActivity(), AnkoLogger {
+abstract class BaseActivity<out T : AnkoComponent<Activity>>(val ui: T) : RxActivity(), AnkoLogger {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        component.setContentView(this)
+        ui.setContentView(this)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == android.R.id.home) {

@@ -5,11 +5,11 @@ import android.graphics.Color
 import android.graphics.Typeface
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import com.github.clans.fab.FloatingActionButton
 import com.linroid.gassist.BuildConfig
 import com.linroid.gassist.R
 import com.linroid.gassist.attr
 import com.linroid.gassist.floatingActionButton
-import com.linroid.gassist.ui.HomeActivity
 import com.linroid.gassist.ui.PluginAdapter
 import com.linroid.gassist.ui.widget.DividerItemDecoration
 import org.jetbrains.anko.*
@@ -20,6 +20,8 @@ import org.jetbrains.anko.recyclerview.v7.recyclerView
  * @since 26/07/2017
  */
 class HomeActivityUI : AnkoComponent<Activity> {
+    lateinit var runBtn: FloatingActionButton
+
     override fun createView(ui: AnkoContext<Activity>) = ui.apply {
         relativeLayout {
             val header = relativeLayout() {
@@ -63,7 +65,7 @@ class HomeActivityUI : AnkoComponent<Activity> {
                 alignParentBottom()
             }
 
-            floatingActionButton {
+            runBtn = floatingActionButton {
                 id = R.id.fab_run
                 imageResource = R.drawable.ic_play_arrow
                 elevation = dip(32f).toFloat()

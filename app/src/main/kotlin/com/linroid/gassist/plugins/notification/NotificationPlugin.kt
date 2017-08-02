@@ -10,6 +10,7 @@ import com.linroid.gassist.plugins.Plugin
  * @since 20/07/2017
  */
 class NotificationPlugin(context: Context) : Plugin<NotificationConfig>(context, R.id.plugin_notification) {
+
     override fun name(): String {
         return context.resources.getString(R.string.plugin_name_notification)
     }
@@ -21,12 +22,13 @@ class NotificationPlugin(context: Context) : Plugin<NotificationConfig>(context,
     override fun change(config: NotificationConfig) {
     }
 
-    override fun shutdown(info: ApplicationInfo) {
+    override fun shutdown() {
     }
 
-    override fun switch(info: ApplicationInfo) {
+    override fun onGameChanged(info: ApplicationInfo) {
     }
 
-    override fun startup(info: ApplicationInfo) {
+    override fun startup() {
     }
+
 }

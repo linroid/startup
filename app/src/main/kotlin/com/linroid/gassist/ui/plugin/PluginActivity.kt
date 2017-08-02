@@ -18,6 +18,10 @@ class PluginActivity : BaseActivity<PluginActivityUI>(PluginActivityUI()) {
         this.title = plugin.name()
         super.onCreate(savedInstanceState)
         actionBar?.setDisplayHomeAsUpEnabled(true)
-        component.pluginDes.text = plugin.description()
+        ui.pluginDes.text = plugin.description()
+        ui.enableSwitch.isEnabled = plugin.enabled
+        ui.enableSwitch.setOnClickListener {
+            plugin.switch()
+        }
     }
 }

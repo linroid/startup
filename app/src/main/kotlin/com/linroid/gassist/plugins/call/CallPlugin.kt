@@ -21,13 +21,13 @@ class CallPlugin(context: Context) : Plugin<CallConfig>(context, R.id.plugin_cal
     override fun change(config: CallConfig) {
     }
 
-    override fun shutdown(info: ApplicationInfo) {
+    override fun shutdown() {
     }
 
-    override fun startup(info: ApplicationInfo) {
+    override fun startup() {
     }
 
-    override fun switch(info: ApplicationInfo) {
+    override fun onGameChanged(info: ApplicationInfo) {
     }
 
 }
