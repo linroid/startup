@@ -13,7 +13,7 @@ class App : Application() {
 
         @JvmStatic
         fun get(): App {
-            return instance;
+            return instance
         }
     }
 

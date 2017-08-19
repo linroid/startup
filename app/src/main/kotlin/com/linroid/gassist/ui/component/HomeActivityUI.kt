@@ -67,7 +67,7 @@ class HomeActivityUI : AnkoComponent<Activity> {
 
             runBtn = floatingActionButton {
                 id = R.id.fab_run
-                imageResource = R.drawable.ic_play_arrow
+                imageResource = R.drawable.ic_action_run
                 elevation = dip(32f).toFloat()
 //                colorNormal = Color.parseColor("#FF4CAF50")
             }.lparams {

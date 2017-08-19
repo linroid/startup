@@ -1,15 +1,16 @@
 package com.linroid.gassist.ui
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
 import android.view.MenuItem
 import com.linroid.gassist.R
+import com.linroid.gassist.bus.Bus
+import com.linroid.gassist.bus.events.StatusChangedEvent
 import com.linroid.gassist.plugins.PluginManager
-import com.linroid.gassist.service.GameAssistService
 import com.linroid.gassist.ui.component.HomeActivityUI
-import org.jetbrains.anko.toast
 
 class HomeActivity : BaseActivity<HomeActivityUI>(HomeActivityUI()) {
 
@@ -17,21 +18,21 @@ class HomeActivity : BaseActivity<HomeActivityUI>(HomeActivityUI()) {
         super.onCreate(savedInstanceState)
         ui.runBtn.setOnClickListener {
             if (!PluginManager.isRunning()) {
-                if (!GameAssistService.isAccessibilitySettingsOn(this)) {
-                    navToAccessibilitySettings()
-                    return@setOnClickListener
-                }
                 PluginManager.turnOn()
             } else {
                 PluginManager.turnOff()
             }
         }
+//        if (!Settings.System.canWrite(this)) {
+//            val intent = Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS,
+//                    Uri.parse("package:" + packageName))
+//            startActivityForResult(intent, 0x1)
+//        }
+        Bus.register(StatusChangedEvent::class).subscribe {
+            ui.runBtn.setImageResource(if (it.running) R.drawable.ic_action_stop else R.drawable.ic_action_run)
+        }
     }
 
-    private fun navToAccessibilitySettings() {
-        toast("// todo > 开启辅助服务")
-        startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
-    }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.home, menu)

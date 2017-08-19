@@ -2,6 +2,8 @@ package com.linroid.gassist.plugins
 
 import android.content.Context
 import android.content.pm.ApplicationInfo
+import android.support.annotation.CallSuper
+import org.jetbrains.anko.AnkoLogger
 import kotlin.properties.Delegates
 import kotlin.reflect.KProperty
 
@@ -9,7 +11,7 @@ import kotlin.reflect.KProperty
  * @author linroid <linroid@gmail.com>
  * @since 17/07/2017
  */
-abstract class Plugin<T : PluginConfig>(val context: Context, val id: Int) {
+abstract class Plugin<T : PluginConfig>(val context: Context, val id: Int) : AnkoLogger {
     lateinit var config: T
     var enabled by Delegates.observable(true, { prop: KProperty<*>, oldVal: Boolean, newVal: Boolean ->
 
@@ -47,6 +49,16 @@ abstract class Plugin<T : PluginConfig>(val context: Context, val id: Int) {
 
     fun switch() {
         enabled = !enabled
+    }
+
+    @CallSuper
+    open fun checkPrecondition(): Boolean {
+        return true
+    }
+
+    @CallSuper
+    open fun isAvailable(): Boolean {
+        return true
     }
 
 }

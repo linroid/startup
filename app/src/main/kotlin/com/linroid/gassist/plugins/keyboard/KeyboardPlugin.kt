@@ -1,12 +1,15 @@
 package com.linroid.gassist.plugins.keyboard
 
 import android.content.Context
+import android.content.Intent
 import android.content.pm.ApplicationInfo
+import android.provider.Settings
 import android.view.KeyEvent
 import com.linroid.gassist.R
 import com.linroid.gassist.plugins.Plugin
 import com.linroid.gassist.plugins.PluginManager
 import com.linroid.gassist.service.GameAssistService
+import org.jetbrains.anko.toast
 
 /**
  * 按键屏蔽
@@ -51,4 +54,16 @@ class KeyboardPlugin(context: Context) : Plugin<KeyboardConfig>(context, R.id.pl
         return false
     }
 
+    override fun checkPrecondition(): Boolean {
+        if (!GameAssistService.isAccessibilitySettingsOn(context)) {
+            navToAccessibilitySettings()
+            return false
+        }
+        return super.checkPrecondition()
+    }
+
+    private fun navToAccessibilitySettings() {
+        context.toast("// todo > 开启辅助服务")
+        context.startActivity(Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS))
+    }
 }

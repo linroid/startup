@@ -2,6 +2,7 @@ package com.linroid.gassist
 
 import android.support.annotation.AttrRes
 import android.util.TypedValue
+import io.reactivex.disposables.Disposable
 
 /**
  * @author linroid <linroid@gmail.com>
@@ -17,4 +18,10 @@ fun attr(@AttrRes attr: Int): Int {
     val typedValue = TypedValue()
     theme.resolveAttribute(attr, typedValue, true)
     return typedValue.resourceId
+}
+
+fun Disposable?.safeDispose() {
+    if (this != null && !this.isDisposed) {
+        this.dispose()
+    }
 }
